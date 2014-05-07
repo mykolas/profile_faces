@@ -1,0 +1,1 @@
+bin\vc12\bin\opencv_createsamples -info pos.dat -num 12000 -w 24 -h 24 -vec pos.vec
