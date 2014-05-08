@@ -39,6 +39,7 @@ def get_urls(search, start = 0):
 
 def download_img(url):
     log("downloading img from: " + url)
+    print(url)
     req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"}) 
     try:
         img_file = urllib2.urlopen(req)
@@ -95,7 +96,8 @@ def detect(img):
     gray = img
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     gray = cv2.equalizeHist(gray)
-    cascade = cv2.CascadeClassifier("..\\cascades\\haarcascade_frontalface_alt.xml")
+    #cascade = cv2.CascadeClassifier("..\\cascades\\haarcascade_frontalface_alt.xml")
+    cascade = cv2.CascadeClassifier("..\\cascades\\cascade.xml")
     rects = cascade.detectMultiScale(gray, 1.3, 4, cv2.cv.CV_HAAR_SCALE_IMAGE, (20,20))
     if len(rects) == 0:
     #    print("not found")
@@ -136,13 +138,16 @@ def log(data):
 
 def get_from_flickr_all():
     urls = []
-    for i in range(15, 10000):
+    for i in range(100, 10000):
         get_from_flickr_one(i)
         log("downloaded block #" + str(i))
     
 
 def get_from_flickr_one(i):
     url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=94e5d16ea5dd80ae5daeacb654816383&text=people&per_page=500&page=" + str(i) + "&format=json&nojsoncallback=1"
+
+    #print(url)
+    #sys.exit(url)
     urls = []
     request = urllib2.Request(url, None)
     response = urllib2.urlopen(request)
@@ -159,7 +164,7 @@ def get_from_flickr_one(i):
         result_downloaded = download_img(tmp)
         if result_downloaded.size != 0:
             log("writing file: " + str(result["id"]) + '_' + str(result["secret"]) + '.jpg')
-            process(result_downloaded, "..\\detected_faces\\"+ str(result["id"]) + '_' + str(result["secret"]) + '.jpg')
+            process(result_downloaded, "..\\detected_faces2\\"+ str(result["id"]) + '_' + str(result["secret"]) + '.jpg')
             #cv2.imwrite("..\\test\\" + str(result["id"]) + '_' + str(result["secret"]) + '.jpg', result_downloaded)
 
     
