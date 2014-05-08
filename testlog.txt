@@ -1,0 +1,8 @@
+
+C:\profile face detection\profile_faces>echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+C:\profile face detection\profile_faces>DATE /T 
+Wed 05/07/2014 
+
+C:\profile face detection\profile_faces>train_DAB_LBP.bat   1>training_logs\dab_lbp.txt 

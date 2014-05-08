@@ -1,0 +1,1 @@
+bin\vc12\bin\opencv_traincascade -data dab_haar_all_data -vec pos.vec -bg neg.dat -numPos 11000 -numNeg 800 -numStages 15 -w 24 -h 24 -featureType HAAR -mode ALL -bt DAB 
