@@ -1,0 +1,21 @@
+PARAMETERS:
+cascadeDirName: rab_hog_data
+vecFileName: pos.vec
+bgFileName: neg.dat
+numPos: 11000
+numNeg: 800
+numStages: 15
+precalcValBufSize[Mb] : 256
+precalcIdxBufSize[Mb] : 256
+stageType: BOOST
+featureType: HOG
+sampleWidth: 24
+sampleHeight: 24
+boostType: RAB
+minHitRate: 0.995
+maxFalseAlarmRate: 0.5
+weightTrimRate: 0.95
+maxDepth: 1
+maxWeakCount: 100
+
+Stages 0-14 are loaded
